@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="-2" CornerRadius="0">
+            <Label Text="Consulta seus dados" HorizontalTextAlignment="Center" TextColor="White" FontSize="30"/>
+        </Frame>
+        <StackLayout Margin="10">
+            <Label x:Name="Lbl_Cpf" Text="Numero CPF" FontSize="20" HorizontalOptions="Center"/>
+            <Entry x:Name="Entry_CPF"  MaxLength="11" />
+        </StackLayout>
+ 
+        <StackLayout Spacing="10" Orientation="Horizontal" Margin="100">
+            <Button x:Name="Btn_Signin" Text="Consulta" Clicked="Btn_Consulta_CPF" BackgroundColor="Green" TextColor="Aqua"/>
+            <Button x:Name="Btn_Cadastrar" Text="Cadastra-se" Clicked="Btn_Cadatro_Pessoa" BackgroundColor="Blue" TextColor="Aqua"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

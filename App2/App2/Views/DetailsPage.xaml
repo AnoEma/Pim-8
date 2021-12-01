@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.Views.DetailsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3" Padding="2" CornerRadius="0">
+                <Label Text="Detalhes de dados pessoa" HorizontalTextAlignment="Center" TextColor="White" FontSize="30"/>
+            </Frame>
+
+            <StackLayout Spacing="5" Margin="10" Padding="2">
+                <Label FontSize="Body"  x:Name="lbl_Nome"/>
+                <Label FontSize="Body"  x:Name="lbl_Cpf"/>
+                <Label FontSize="Body"  x:Name="lbl_Telefone"/>
+                <Label FontSize="Body"  x:Name="lbl_Logradouro"/>
+                <Label FontSize="Body"  x:Name="lbl_Numero"/>
+                <Label FontSize="Body"  x:Name="lbl_Cep"/>
+                <Label FontSize="Body"  x:Name="lbl_Bairro"/>
+                <Label FontSize="Body"  x:Name="lbl_Cidade"/>
+                <Label FontSize="Body"  x:Name="lbl_Estado"/>
+            </StackLayout>
+
+            <StackLayout Spacing="15" Margin="10" VerticalOptions="EndAndExpand">
+                <Button x:Name="Btn_Deletar" Text="Deletar" Clicked="Btn_Deletar_Pessoa"  BackgroundColor="Red" TextColor="Aqua"/>
+                <Button x:Name="Btn_Editar" Text="Editar" Clicked="Bbtn_Editar_Pessoa" BackgroundColor="GreenYellow" TextColor="Coral"/>
+            </StackLayout>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

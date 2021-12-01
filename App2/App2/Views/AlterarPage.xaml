@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.Views.AlterarPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3" Padding="2" CornerRadius="0">
+                <Label Text="Alterar dados pessoa" HorizontalTextAlignment="Center" TextColor="White" FontSize="30"/>
+            </Frame>
+
+
+            <StackLayout Spacing="5" Margin="10" Padding="2">
+                <Label Text="Nome"/>
+                <Entry FontSize="Body"  x:Name="lbl_Nome"/>
+                <Label Text="Nome"/>
+                <Entry FontSize="Body"  x:Name="lbl_Telefone"/>
+                <Label Text="Logradouro"/>
+                <Entry FontSize="Body"  x:Name="lbl_Logradouro"/>
+                <Label Text="Numero"/>
+                <Entry FontSize="Body"  x:Name="lbl_Numero"/>
+                <Label Text="CEP"/>
+                <Entry FontSize="Body"  x:Name="lbl_Cep"/>
+                <Label Text="Bairro"/>
+                <Entry FontSize="Body"  x:Name="lbl_Bairro"/>
+                <Label Text="Cidade"/>
+                <Entry FontSize="Body"  x:Name="lbl_Cidade"/>
+                <Label Text="Estado"/>
+                <Entry FontSize="Body"  x:Name="lbl_Estado"/>
+            </StackLayout>
+
+            <StackLayout Spacing="15" Margin="10" VerticalOptions="EndAndExpand">
+                <Button x:Name="Btn_Voltar" Text="Voltar" Clicked="Btn_Voltar_PR"  BackgroundColor="Red" TextColor="Aqua"/>
+                <Button x:Name="Btn_Alterar" Text="Salvar" Clicked="Btn_Editar_Pessoa" BackgroundColor="GreenYellow" TextColor="Coral"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

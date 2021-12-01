@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.Views.CadastroPessoaPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3" Padding="1" CornerRadius="0">
+                <Label Text="Formulario de cadastro" HorizontalTextAlignment="Center" TextColor="White" FontSize="30"/>
+            </Frame>
+            <StackLayout Spacing="1" Margin="10">
+                <Entry x:Name="Entry_Nome" Placeholder="Nome"/>
+                <Entry x:Name="Entry_CPF" Placeholder="CPF" MaxLength="11"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Entry x:Name="Entry_DDD" Placeholder="DDD" MaxLength="2" />
+                    <Entry x:Name="Entry_Telefone" Placeholder="Numero" MaxLength="9"/>
+                </StackLayout>
+
+
+                <Label x:Name="Lbl_Endereco" Text="Endereço" FontSize="20" HorizontalOptions="Center"/>
+
+                <Entry x:Name="Entry_Logradouro" Placeholder="Logradouro"/>
+                <Entry x:Name="Entry_Numero" Placeholder="Numero"/>
+                <Entry x:Name="Entry_Cep" Placeholder="Cep" MaxLength="8"/>
+                <Entry x:Name="Entry_Bairro" Placeholder="Bairro"/>
+                <Entry x:Name="Entry_Cidade" Placeholder="Cidade"/>
+                <Entry x:Name="Entry_Estado" Placeholder="Estado" MaxLength="2" />
+            </StackLayout>
+
+
+            <StackLayout Spacing="10" VerticalOptions="EndAndExpand" Orientation="Horizontal"  Margin="100">
+                <Button x:Name="Btn_Voltar" Text="Voltar" BackgroundColor="Blue" TextColor="Aqua" Clicked="Btn_Volta_Inicio" />
+                <Button x:Name="Btn_Salvar" Text="Salva"  BackgroundColor="Green" TextColor="Aqua" Clicked="Btn_Salvar_Pessoa"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
