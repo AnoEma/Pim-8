@@ -31,19 +31,8 @@ namespace App2.Views
 
         private async void Bbtn_Editar_Pessoa(object sender, System.EventArgs e)
         {
-            var pessoa = new Pessoas
-            {
-                Nome = lbl_Nome.Text,
-                CPF = lbl_Cpf.Text,
-                Logradouro = lbl_Logradouro.Text,
-                Numero = int.Parse(lbl_Numero.Text),
-                Cep = int.Parse(lbl_Cep.Text),
-                Bairro = lbl_Bairro.Text,
-                Cidade = lbl_Cidade.Text,
-                Estado = lbl_Estado.Text,
-
-            };
-            await Navigation.PushAsync(new AlterarPage(pessoa));
+            var cpf = lbl_Cpf.Text.Substring(13, 11);
+            await Navigation.PushAsync(new AlterarPage(cpf));
         }
 
         private async void Btn_Deletar_Pessoa(object sender, System.EventArgs e)
@@ -61,15 +50,16 @@ namespace App2.Views
                         await DisplayAlert("Alerta", "Usuario foi deletado com sucesso", "OK");
                         await Navigation.PushAsync(new MainPage());
                     }
-
-                    await DisplayAlert("Alerta", "O registro não foi deletado com sucesso", "OK");
-
+                    else
+                    {
+                        await DisplayAlert("Alerta", "O registro não foi deletado com sucesso", "OK");
+                    }
                 }
-                catch (Exception ex )
+                catch (Exception ex)
                 {
                     await DisplayAlert("Erro", ex.Message, "OK");
                 }
-                
+
             }
         }
     }

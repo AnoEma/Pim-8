@@ -1,7 +1,5 @@
-﻿using App2.Data;
-using App2.Views;
+﻿using App2.Views;
 using System;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace App2

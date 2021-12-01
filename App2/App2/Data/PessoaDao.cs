@@ -36,7 +36,8 @@ namespace App2.Data
             }
             lock (locker)
             {
-                if (string.IsNullOrEmpty(pessoas.CPF))
+                var cpfExiste = _context.Table<Pessoas>().Where(x => x.CPF == pessoas.CPF && x.Ativo == true).FirstOrDefaultAsync();
+                if (cpfExiste != null)
                 {
                     _context.UpdateAsync(pessoas);
                     return true;

@@ -13,7 +13,7 @@
 
                 <StackLayout Orientation="Horizontal">
                     <Entry x:Name="Entry_DDD" Placeholder="DDD" MaxLength="2" />
-                    <Entry x:Name="Entry_Telefone" Placeholder="Numero" MaxLength="9"/>
+                    <Entry x:Name="Entry_Telefone" Placeholder="Numero" MaxLength="9" Margin="10"/>
                 </StackLayout>
 
 

@@ -27,7 +27,7 @@ namespace App2
             InitializeComponent();
 
             MainPage = new NavigationPage (new MainPage());
-            //MainPage = new CadastroPessoaPage();
+            //MainPage = new AlterarPage(null);
         }
 
         protected override void OnStart()

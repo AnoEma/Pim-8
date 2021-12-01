@@ -29,10 +29,10 @@ namespace App2.Views
                 NumeroTelefone = Entry_Telefone.Text,
                 Logradouro = Entry_Logradouro.Text,
                 Numero = int.Parse(Entry_Numero.Text),
-                Cep = int.Parse(Entry_Cep.Text),
+                Cep =  Entry_Cep.Text,
                 Bairro = Entry_Bairro.Text,
                 Cidade = Entry_Cidade.Text,
-                Estado = Entry_Estado.Text,
+                Estado = Entry_Estado.Text.ToUpper(),
             };
 
             try

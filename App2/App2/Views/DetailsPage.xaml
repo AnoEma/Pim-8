@@ -25,6 +25,6 @@
                 <Button x:Name="Btn_Editar" Text="Editar" Clicked="Bbtn_Editar_Pessoa" BackgroundColor="GreenYellow" TextColor="Coral"/>
             </StackLayout>
         </StackLayout>
-        
+
     </ContentPage.Content>
 </ContentPage>

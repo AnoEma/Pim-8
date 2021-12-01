@@ -9,38 +9,46 @@ namespace App2.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AlterarPage : ContentPage
     {
-        public AlterarPage(Models.Pessoas pessoa)
+        public AlterarPage(string cpf)
         {
             InitializeComponent();
-            MonstrarPessoa(pessoa);
+            MonstrarPessoa(cpf);
         }
 
-        private void MonstrarPessoa(Pessoas pessoa)
+        private async void MonstrarPessoa(string cpf)
         {
-            lbl_Nome.Text = "Nome Completo : " + pessoa.Nome;
-            lbl_Telefone.Text = "Telefone : " + pessoa.DDD + pessoa.NumeroTelefone;
-            lbl_Logradouro.Text = "Logradouro : " + pessoa.Logradouro;
-            lbl_Numero.Text = "Numero : " + pessoa.Numero;
-            lbl_Cep.Text = "CEP : " + pessoa.Cep;
-            lbl_Bairro.Text = "Bairro : " + pessoa.Bairro;
-            lbl_Cidade.Text = "Cidade : " + pessoa.Cidade;
-            lbl_Estado.Text = "Estado : " + pessoa.Estado.ToUpper();
+            var pessoa = await App.Database.GetPessoas(cpf);
+
+            Entry_CPF.Text = pessoa.CPF;
+            Entry_Nome.Text = pessoa.Nome;
+            Entry_Telefone.Text =  pessoa.DDD + pessoa.NumeroTelefone;
+            Entry_Logradouro.Text = pessoa.Logradouro;
+            Entry_Numero.Text = pessoa.Numero.ToString();
+            Entry_Cep.Text = pessoa.Cep;
+            Entry_Bairro.Text = pessoa.Bairro;
+            Entry_Cidade.Text = pessoa.Cidade;
+            Entry_Estado.Text = pessoa.Estado;
         }
 
         private async void Btn_Editar_Pessoa(object sender, EventArgs e)
         {
             var pessoa = new Pessoas
             {
-                Nome = lbl_Nome.Text,
-                Logradouro = lbl_Logradouro.Text,
-                Numero = int.Parse(lbl_Numero.Text),
-                Cep = int.Parse(lbl_Cep.Text),
-                Bairro = lbl_Bairro.Text,
-                Cidade = lbl_Cidade.Text,
-                Estado = lbl_Estado.Text,
+                CPF = Entry_CPF.Text,
+                Nome = Entry_Nome.Text,
+                DDD = Entry_Telefone.Text?.Substring(0, 2),
+                NumeroTelefone = Entry_Telefone.Text?.Substring(2, 9),
+                Logradouro = Entry_Logradouro.Text,
+                Numero = int.Parse(Entry_Numero.Text),
+                Cep = Entry_Cep.Text,
+                Bairro = Entry_Bairro.Text,
+                Cidade = Entry_Cidade.Text,
+                Estado = Entry_Estado.Text.ToUpper(),
+                Ativo = true,
+                Telefones = TipoTelefone.Celular
             };
 
-            if(pessoa != null)
+            if (pessoa != null)
             {
                 try
                 {
@@ -51,13 +59,15 @@ namespace App2.Views
                         await DisplayAlert("Alert", "Dados atualizado com sucesso!", "OK");
                         await Navigation.PushAsync(new MainPage());
                     }
-                    await DisplayAlert("Alert", "Dados não atualizado com sucesso!", "OK");
+                    else
+                    {
+                        await DisplayAlert("Alert", "Dados não atualizado com sucesso!", "OK");
+                    }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    await DisplayAlert("Erro", "Ocorreu erro ao atualizar dados!", "OK");
+                    await DisplayAlert("Erro", ex.Message, "OK");
                 }
-
             }
         }
 
