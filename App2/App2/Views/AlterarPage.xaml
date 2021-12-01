@@ -15,8 +15,8 @@
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="CPF :" FontSize="Body" IsEnabled="False"/>
-                    <Entry  x:Name="Entry_CPF"/>
+                    <Label Text="CPF :" FontSize="Body"/>
+                    <Entry  x:Name="Entry_CPF"  IsEnabled="False"/>
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">

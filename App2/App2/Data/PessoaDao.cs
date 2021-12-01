@@ -51,14 +51,14 @@ namespace App2.Data
             }
         }
 
-        public bool DeletarPessoa(string cpf)
+        public bool DeletarPessoa(Pessoas pessoas)
         {
             lock (locker)
             {
-                if (cpf != null)
+                if (!string.IsNullOrEmpty(pessoas.CPF))
                 {
-                    var pessoa = _context.Table<Pessoas>().Where(x => x.CPF == cpf && x.Ativo == true).FirstOrDefaultAsync();
-                    _context.DeleteAsync(pessoa);
+                    pessoas.Ativo = false;
+                    _context.DeleteAsync(pessoas);
                     return true;
                 }
             }

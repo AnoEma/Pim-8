@@ -37,13 +37,20 @@ namespace App2.Views
 
         private async void Btn_Deletar_Pessoa(object sender, System.EventArgs e)
         {
-            var cpf = lbl_Cpf.Text;
+            var cpf = lbl_Cpf.Text.Substring(13, 11);
 
             if (!string.IsNullOrEmpty(cpf))
             {
                 try
                 {
-                    var result = App.Database.DeletarPessoa(cpf);
+                    var pessoa = await App.Database.GetPessoas(cpf);
+                    if(pessoa == null)
+                    {
+                        await DisplayAlert("Erro", "Ocorreu erro poderia refazer o processo", "OK");
+                        await Navigation.PushAsync(new MainPage());
+                        return;
+                    }
+                    var result = App.Database.DeletarPessoa(pessoa);
 
                     if (result == true)
                     {
