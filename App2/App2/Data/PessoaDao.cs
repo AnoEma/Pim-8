@@ -28,7 +28,7 @@ namespace App2.Data
             }
         }
 
-        public bool SalvarPessoa(Pessoas pessoas)
+        public bool SalvarPessoa(Pessoas pessoas, bool edicao)
         {
             if (pessoas == null)
             {
@@ -37,7 +37,7 @@ namespace App2.Data
             lock (locker)
             {
                 var cpfExiste = _context.Table<Pessoas>().Where(x => x.CPF == pessoas.CPF && x.Ativo == true).FirstOrDefaultAsync();
-                if (cpfExiste != null)
+                if (cpfExiste != null && edicao == true)
                 {
                     _context.UpdateAsync(pessoas);
                     return true;

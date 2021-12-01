@@ -52,7 +52,7 @@ namespace App2.Views
             {
                 try
                 {
-                    var result = App.Database.SalvarPessoa(pessoa);
+                    var result = App.Database.SalvarPessoa(pessoa, true);
 
                     if (result == true)
                     {

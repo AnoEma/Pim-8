@@ -37,16 +37,17 @@ namespace App2.Views
 
             try
             {
-                var result = App.Database.SalvarPessoa(pessoas);
+                var result = App.Database.SalvarPessoa(pessoas, false);
 
                 if (result == true)
                 {
+                    await DisplayAlert("Alert", "Usuario criado com sucesso!", "OK");
                     await Navigation.PopToRootAsync();
                 }
             }
             catch (Exception ex)
             {
-
+                await DisplayAlert("Erro", ex.Message, "OK");
             }
         }
     }
